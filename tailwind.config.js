@@ -18,7 +18,7 @@ module.exports = {
     './assets/**/*.html',
     './src/**/*.rs',
     './css/**/*.css',
-    '../hcc-server/templates/**/*.j2',
-    '../hcc-server/src/**/*.rs'
+    '.git-submodules/clubhouse/templates/**/*.j2',
+    '.git-submodules/clubhouse/src/**/*.rs'
   ],
 }

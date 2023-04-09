@@ -24,14 +24,12 @@
             pkg-config
             openssl
             openssl.bin
-            pkg-config
 
             glibc
             nodejs
             wasm-pack
             binaryen
 
-            rust-analyzer
             (rust-bin.stable.latest.default.override {
               extensions = [ "rust-src" ];
               targets = [
@@ -42,13 +40,6 @@
 
           ];
 
-          shellHook = ''
-                mkdir -p .secrets && touch .secrets/.env
-                stat .secrets/jwtRS256.key > /dev/null || ssh-keygen -t rsa -b 4096 -m PEM -f ./.secrets/jwtRS256.key
-                stat .secrets/jwtRS256.key.pub > /dev/null || openssl rsa -in jwtRS256.key -pubout -outform PEM -out ./.secrets/jwtRS256.key.pub
-
-                stat hcc-db/.cargo-nix-local/bin/sea > /dev/null || cargo install sea-orm-cli --version '^0.8.1' --bin sea --root hcc-db/.cargo-nix-local/
-        '';
         };
       }
     );
