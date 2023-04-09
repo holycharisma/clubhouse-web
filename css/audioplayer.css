@@ -1,0 +1,580 @@
+
+    body {
+      background: black;
+    }
+
+    h1 {
+      color: white;
+    }
+
+    #webamp-player {
+      font-family: monospace;
+      color: #CF60CF;
+      
+      /* disable some user select stuff */
+      user-select: none; /* supported by Chrome and Opera */
+     -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+     -ms-user-select: none; /* Internet Explorer/Edge */      
+    }
+
+    #webamp-main-window {
+      width: 275px;
+      height: 116px;
+      margin: 0;
+      padding: 0;
+      background-image: url('sprites-basic.png');
+      background-position: -1px -319px;
+    }
+    #webamp-main-window > div {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      width: 275px;
+    }
+    #webamp-main-top {
+      height: 13px;
+      background-image: url('sprites-basic.png');
+      background-position: -445px -382px;
+    }
+    #webamp-main-info {
+      position: relative;
+      height: 57px;
+    }
+    #webamp-main-info-now-playing-left {
+      position: absolute;
+      height: 20px;
+      width: 82px;
+      top: 9px;
+      left: 21px;
+    }
+    #webamp-main-info-now-playing-indicator {
+      position: absolute;
+      height: 12px;
+      width: 12px;
+      top: 0;
+      left: 0;
+    }
+    #webamp-main-info-now-playing-digits {
+      position: absolute;
+      height: 20px;
+      width: 70px;
+      top: 0;
+      right: 0;
+      line-height: 20px;
+    }
+    #webamp-main-info-now-playing-digits span {
+      font-size: 14px;
+      float: left;
+      padding: 0 2px;
+    }
+    #webamp-main-info-now-playing-minutes {
+      height: 20px;
+      width: 38px;
+      float: left;    
+    }
+    #webamp-main-info-now-playing-minutes span {
+      float: right;
+    }
+    #webamp-main-info-now-playing-seconds {
+      height: 20px;
+      width: 26px;
+      float: left;    
+      margin-left: 6px;
+    }
+    #webamp-state-indicator-stop {
+      background-image: url('sprites-basic.png');
+      background-position: -315px 10px;
+      height: 9px;
+      position: absolute;
+      width: 9px;
+      top: 5px;
+      left: 5px;
+      display: block;      
+    }
+    #webamp-state-indicator-pause {
+      background-image: url('sprites-basic.png');
+      background-position: -306px 10px;
+      height: 9px;
+      position: absolute;
+      width: 9px;
+      top: 5px;
+      left: 5px;
+      display: block;      
+    }
+    #webamp-state-indicator-play {
+      background-image: url('sprites-basic.png');
+      background-position: -297px 10px;
+      height: 9px;
+      position: absolute;
+      width: 9px;
+      top: 5px;
+      left: 5px;
+      display: block;      
+    }
+    #webamp-main-info-now-playing-right {
+      position: absolute;
+      height: 28px;
+      width: 156px;
+      top: 9px;
+      right: 10px;
+    }
+    #webamp-main-info-now-playing-title-marquee {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 16px;
+    }
+    #webamp-main-info-now-playing-kbps {
+      font-size: 7px;
+      font-weight: bold;
+      line-height: 14px;
+      margin-left: 2px;      
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 19px;
+      height: 12px;
+    }
+    #webamp-main-info-now-playing-khz {
+      position: absolute;
+      bottom: 0;
+      left: 40px;
+      width: 18px;
+      height: 12px;
+      font-size: 7px;
+      font-weight: bold;
+      line-height: 14px;
+      margin-left: 6px;  
+    }
+
+    #webamp-main-info-overlay {
+      position: absolute;
+      width: 95px;
+      height: 15px;
+      background-color: #dedede;
+      top: 42px;
+      right: 8px;      
+    }
+    #webamp-main-info-volume {
+      position: absolute;
+      width: 82px;
+      height: 15px;
+      bottom: 0px;
+      right: 86px;      
+    }
+    #webamp-main-info-volume-position:active {
+      background-image: url('sprites-basic.png');
+      background-position: -348px 50px;
+    }
+    #webamp-main-info-volume-position {
+      height: 11px;
+      width: 14px;
+      margin-top: 2px;
+      margin-left: 49%;
+      background-image: url('sprites-basic.png');
+      background-position: -363px 50px;
+    }
+    #webamp-main-controls-overlay {
+      position: absolute;
+      width: 112px;
+      height: 19px;
+      background-color: #dedede;
+      bottom: 3px;
+      right: 29px;      
+    }
+    #webamp-main-controls-info {
+      position: absolute;
+      width: 20px;
+      height: 18px;
+      bottom: 2px;
+      right: 8px;
+    }
+    #webamp-main-seek {
+      height: 14px;
+    }
+    #webamp-main-seek-playhead:active {
+      background-image: url('sprites-basic.png');
+      background-position: -417px 37px;
+    }
+    #webamp-main-seek-playhead {
+      position: absolute;
+      height: 11px;
+      width: 29px;
+      margin-left: 16px;
+      background-image: url('sprites-basic.png');
+      background-position: -387px 37px;
+    }
+
+.seek-left-0pc { left: calc(220px * 0.00); }
+.seek-left-1pc { left: calc(220px * 0.01); }
+.seek-left-2pc { left: calc(220px * 0.02); }
+.seek-left-3pc { left: calc(220px * 0.03); }
+.seek-left-4pc { left: calc(220px * 0.04); }
+.seek-left-5pc { left: calc(220px * 0.05); }
+.seek-left-6pc { left: calc(220px * 0.06); }
+.seek-left-7pc { left: calc(220px * 0.07); }
+.seek-left-8pc { left: calc(220px * 0.08); }
+.seek-left-9pc { left: calc(220px * 0.09); }
+.seek-left-10pc { left: calc(220px * 0.10); }
+.seek-left-11pc { left: calc(220px * 0.11); }
+.seek-left-12pc { left: calc(220px * 0.12); }
+.seek-left-13pc { left: calc(220px * 0.13); }
+.seek-left-14pc { left: calc(220px * 0.14); }
+.seek-left-15pc { left: calc(220px * 0.15); }
+.seek-left-16pc { left: calc(220px * 0.16); }
+.seek-left-17pc { left: calc(220px * 0.17); }
+.seek-left-18pc { left: calc(220px * 0.18); }
+.seek-left-19pc { left: calc(220px * 0.19); }
+.seek-left-20pc { left: calc(220px * 0.20); }
+.seek-left-21pc { left: calc(220px * 0.21); }
+.seek-left-22pc { left: calc(220px * 0.22); }
+.seek-left-23pc { left: calc(220px * 0.23); }
+.seek-left-24pc { left: calc(220px * 0.24); }
+.seek-left-25pc { left: calc(220px * 0.25); }
+.seek-left-26pc { left: calc(220px * 0.26); }
+.seek-left-27pc { left: calc(220px * 0.27); }
+.seek-left-28pc { left: calc(220px * 0.28); }
+.seek-left-29pc { left: calc(220px * 0.29); }
+.seek-left-30pc { left: calc(220px * 0.30); }
+.seek-left-31pc { left: calc(220px * 0.31); }
+.seek-left-32pc { left: calc(220px * 0.32); }
+.seek-left-33pc { left: calc(220px * 0.33); }
+.seek-left-34pc { left: calc(220px * 0.34); }
+.seek-left-35pc { left: calc(220px * 0.35); }
+.seek-left-36pc { left: calc(220px * 0.36); }
+.seek-left-37pc { left: calc(220px * 0.37); }
+.seek-left-38pc { left: calc(220px * 0.38); }
+.seek-left-39pc { left: calc(220px * 0.39); }
+.seek-left-40pc { left: calc(220px * 0.40); }
+.seek-left-41pc { left: calc(220px * 0.41); }
+.seek-left-42pc { left: calc(220px * 0.42); }
+.seek-left-43pc { left: calc(220px * 0.43); }
+.seek-left-44pc { left: calc(220px * 0.44); }
+.seek-left-45pc { left: calc(220px * 0.45); }
+.seek-left-46pc { left: calc(220px * 0.46); }
+.seek-left-47pc { left: calc(220px * 0.47); }
+.seek-left-48pc { left: calc(220px * 0.48); }
+.seek-left-49pc { left: calc(220px * 0.49); }
+.seek-left-50pc { left: calc(220px * 0.50); }
+.seek-left-51pc { left: calc(220px * 0.51); }
+.seek-left-52pc { left: calc(220px * 0.52); }
+.seek-left-53pc { left: calc(220px * 0.53); }
+.seek-left-54pc { left: calc(220px * 0.54); }
+.seek-left-55pc { left: calc(220px * 0.55); }
+.seek-left-56pc { left: calc(220px * 0.56); }
+.seek-left-57pc { left: calc(220px * 0.57); }
+.seek-left-58pc { left: calc(220px * 0.58); }
+.seek-left-59pc { left: calc(220px * 0.59); }
+.seek-left-60pc { left: calc(220px * 0.60); }
+.seek-left-61pc { left: calc(220px * 0.61); }
+.seek-left-62pc { left: calc(220px * 0.62); }
+.seek-left-63pc { left: calc(220px * 0.63); }
+.seek-left-64pc { left: calc(220px * 0.64); }
+.seek-left-65pc { left: calc(220px * 0.65); }
+.seek-left-66pc { left: calc(220px * 0.66); }
+.seek-left-67pc { left: calc(220px * 0.67); }
+.seek-left-68pc { left: calc(220px * 0.68); }
+.seek-left-69pc { left: calc(220px * 0.69); }
+.seek-left-70pc { left: calc(220px * 0.70); }
+.seek-left-71pc { left: calc(220px * 0.71); }
+.seek-left-72pc { left: calc(220px * 0.72); }
+.seek-left-73pc { left: calc(220px * 0.73); }
+.seek-left-74pc { left: calc(220px * 0.74); }
+.seek-left-75pc { left: calc(220px * 0.75); }
+.seek-left-76pc { left: calc(220px * 0.76); }
+.seek-left-77pc { left: calc(220px * 0.77); }
+.seek-left-78pc { left: calc(220px * 0.78); }
+.seek-left-79pc { left: calc(220px * 0.79); }
+.seek-left-80pc { left: calc(220px * 0.80); }
+.seek-left-81pc { left: calc(220px * 0.81); }
+.seek-left-82pc { left: calc(220px * 0.82); }
+.seek-left-83pc { left: calc(220px * 0.83); }
+.seek-left-84pc { left: calc(220px * 0.84); }
+.seek-left-85pc { left: calc(220px * 0.85); }
+.seek-left-86pc { left: calc(220px * 0.86); }
+.seek-left-87pc { left: calc(220px * 0.87); }
+.seek-left-88pc { left: calc(220px * 0.88); }
+.seek-left-89pc { left: calc(220px * 0.89); }
+.seek-left-90pc { left: calc(220px * 0.90); }
+.seek-left-91pc { left: calc(220px * 0.91); }
+.seek-left-92pc { left: calc(220px * 0.92); }
+.seek-left-93pc { left: calc(220px * 0.93); }
+.seek-left-94pc { left: calc(220px * 0.94); }
+.seek-left-95pc { left: calc(220px * 0.95); }
+.seek-left-96pc { left: calc(220px * 0.96); }
+.seek-left-97pc { left: calc(220px * 0.97); }
+.seek-left-98pc { left: calc(220px * 0.98); }
+.seek-left-99pc { left: calc(220px * 0.99); }
+
+    #webamp-main-controls {
+      height: 25px;
+      position: relative;
+    }
+    #webamp-playlist-window {
+      position: relative;
+      top: 5px;
+      width: 275px;
+      margin: 0;
+      padding: 0;
+    }
+    #webamp-playlist-top > div {
+      display: inline-block;
+      float: left;
+      margin: 0;
+      padding: 0;
+      height: 20px;
+    }
+    #webamp-playlist-top-left {
+      width: 24px;
+      background-image: url('sprites-basic.png');
+      background-position: -448px 0px;
+    }
+    #webamp-playlist-top-title {
+      width: 96px;
+      background-image: url('sprites-basic.png');
+      background-position: -475px 0px;
+    }
+    .webamp-playlist-spacer {
+      width: 22px;
+      background-image: url('sprites-basic.png');
+      background-position: -576px 0px;
+    }
+    #webamp-playlist-top-right {
+      width: 23px;
+      background-image: url('sprites-basic.png');
+      background-position: -603px 0px;
+    }
+    #webamp-playlist-middle > div {
+      display: inline-block;
+      float: left;
+      margin: 0;
+      padding: 0;
+      height: 70px;
+    }
+    #webamp-playlist-middle-left {
+      width: 12px;
+      height: 70px;
+      background-image: url('sprites-basic.png');
+      background-position: -448px -44px;
+    }
+    #webamp-playlist-middle-left > .repeat-y {
+      background-image: url('sprites-basic.png');
+      background-position: -448px -74px;
+      width: 12px;
+      height: 30px;
+    }
+    #webamp-playlist-middle-center {
+      width: 243px;
+    }
+    #webamp-playlist-middle-right {
+      position: relative;
+      width: 20px;
+    }
+    #webamp-playlist-middle-right > .repeat-y {
+      background-image: url('sprites-basic.png');
+      background-position: -479px -44px;
+      width: 20px;
+      height: 26px;
+    }
+    #webamp-playlist-middle-scroll:active {
+      background-image: url('sprites-basic.png');
+      background-position: 267px -54px;    
+    }
+    #webamp-playlist-middle-scroll {
+      position: absolute;
+      background-image: url('sprites-basic.png');
+      background-position: 276px -54px;    
+      top: 0;
+      left: 5px;
+      height: 18px;
+      width: 8px;
+    }
+    #webamp-playlist-middle-contents {
+      position: relative;
+      background-color: black;
+      top: -2px;
+      left: -3px;
+      height: 85px;
+      width: 248px;
+      z-index: 9;
+    }
+    #webamp-playlist-middle-contents span.num::after {
+      content: ". ";
+    }
+    #webamp-playlist-middle-contents li {
+      color: #CF60CF;
+      margin: 0;
+      padding: 5px;
+      line-height: 10px;
+      font-size: 10px;
+      list-style-type: none;
+    }
+    #webamp-playlist-middle-contents li.active {
+      color: #902F90;
+    }
+    #webamp-playlist-middle-contents li span.num {
+      position: relative;
+      top: -3px;
+    }
+    #webamp-playlist-middle-contents li span.duration {
+      float: right;
+    }
+    #webamp-playlist-middle-contents li span.title {
+      display: inline-block;
+      width: 190px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: clip;    
+    }
+    #webamp-playlist-middle-contents li.selected {
+      background-color: #40003F;
+    }
+    #webamp-playlist-middle-contents li:active {
+      background-color: #40003F;
+    }
+    #webamp-playlist-bottom {
+      position: relative;
+    }
+    #webamp-playlist-bottom > div {
+      display: inline-block;
+      float: left;
+      margin: 0;
+      padding: 0;
+      height: 36px;
+    }
+    #webamp-playlist-bottom-overlay {
+      position: absolute;
+      width: 247px;
+      background-color: #dedede;
+      top: 96px;
+      height: 25px;
+      left: 8px;    
+    }
+    #webamp-playlist-bottom-left {
+      width: 123px;
+      background-image: url('sprites-basic.png');
+      background-position: -448px -74px;    
+    }
+    #webamp-playlist-bottom-center {
+      width: 4px;
+      background-image: url('sprites-basic.png');
+      background-position: -575px -74px;    
+    }
+    #webamp-playlist-bottom-right {
+      width: 148px;
+      background-image: url('sprites-basic.png');
+      background-position: -576px -74px;    
+    }
+    #webamp-player {
+      width: 275px;
+    }
+    #webamp-player hr {
+      margin: 7px 10px;
+    }
+    #webamp-main-controls-actions {
+      position: absolute;
+      left: 14px;
+      top: 0;
+      margin-top: 3px;
+      margin-left: 1px;
+      height: 0px;
+      width: 120px;
+      background-color: #dedede;
+    }
+    #webamp-main-controls-actions > div {
+      width: 22px;
+      height: 18px;
+      margin: 0;
+      margin-left: 1px;
+      padding: 0;
+      display: inline-block;
+      float: left;
+    }
+    #webamp-main-controls-action-back {
+      background-image: url('sprites-basic.png');
+      background-position: -1px 37px;
+    }
+    #webamp-main-controls-action-back:active {
+      background-image: url('sprites-basic.png');
+      background-position: -1px 19px;
+    }
+    #webamp-main-controls-action-play {
+      background-image: url('sprites-basic.png');
+      background-position: -24px 37px;
+    }
+    #webamp-main-controls-action-play:active {
+      background-image: url('sprites-basic.png');
+      background-position: -24px 19px;
+    }
+    #webamp-main-controls-action-pause {
+      background-image: url('sprites-basic.png');
+      background-position: -47px 37px;
+    }
+    #webamp-main-controls-action-pause:active {
+      background-image: url('sprites-basic.png');
+      background-position: -47px 19px;
+    }
+    #webamp-main-controls-action-stop {
+      background-image: url('sprites-basic.png');
+      background-position: -70px 37px;
+    }
+    #webamp-main-controls-action-stop:active {
+      background-image: url('sprites-basic.png');
+      background-position: -70px 19px;
+    }
+    #webamp-main-controls-action-forward {
+      background-image: url('sprites-basic.png');
+      background-position: -93px 37px;
+    }
+    #webamp-main-controls-action-forward:active {
+      background-image: url('sprites-basic.png');
+      background-position: -93px 19px;
+    }
+    
+    
+.marquee {
+  display: inline-block;
+  height: 25px;
+  width: 100%;
+  font-size: 8px;
+  margin-top: 3px;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee div {
+  width: 200%;
+  height: 30px;
+
+  position: absolute;
+  white-space: nowrap;
+
+  animation: marquee 25s linear infinite;
+}
+
+.marquee span {
+  display: inline;
+  padding: 0 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -500%; } /* 100% for every copy of the span */ 
+}
+
+.marquee.paused div {
+  -webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
+    animation-play-state: paused;
+}    
+
+.marquee:hover div {
+  -webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
+    animation-play-state: paused;
+}    
